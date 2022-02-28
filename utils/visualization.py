@@ -12,8 +12,11 @@ import cv2
 # Constants
 ALPHA = 0.5
 FONT = cv2.FONT_HERSHEY_PLAIN
+
+#定义好的两个常量，用来控制画框的粗细
 TEXT_SCALE = 1.0
 TEXT_THICKNESS = 1
+
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
@@ -30,7 +33,8 @@ def gen_colors(num_colors):
     """
     import random
     import colorsys
-
+    
+    # 随机生成画框的颜色
     hsvs = [[float(x) / num_colors, 1., 0.7] for x in range(num_colors)]
     random.seed(1234)
     random.shuffle(hsvs)
@@ -45,7 +49,7 @@ def draw_boxed_text(img, text, topleft, color):
     colored patch surrounded by a black border. FONT, TEXT_SCALE,
     TEXT_THICKNESS and ALPHA values are constants (fixed) as defined
     on top.
-
+    # 绘制一个半透明的白色方框文本，覆盖在被黑色边框包围的彩色斑块。字体、文字和比例，文本厚度和ALPHA值是定义的常量（固定）在上面
     # Arguments
       img: the input image as a numpy array.
       text: the text to be drawn.
